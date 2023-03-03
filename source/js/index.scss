@@ -61,12 +61,12 @@
 @include applyStyles($headers-line-heights, line-height);
 @include applyStyles($sections-margins);
 @include useFonts($block1-seizes);
+
 // 0-0-1
 html {
     font-size: 10px;
     color: white;
     background-color: $background;
-    border: 2px solid;
 }
 
 ul {
@@ -96,6 +96,11 @@ img {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 [class*=body__lh] {
     white-space: initial;
 }
@@ -109,7 +114,11 @@ img {
 }
 
 .main {
-    margin-top: 259px !important;
+    margin-top: 159px !important;
+}
+
+.burger {
+    display: none;
 }
 
 .main, 
@@ -121,9 +130,6 @@ img {
     margin-top: 0;
     margin-bottom: 0;
 }
-
-// Секция для переиспользуемых компонентов
-.button-gradient {}
 
 .fl-right-icon-content {
     position: absolute;
@@ -168,12 +174,11 @@ img {
 
 .menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100vw;
 }
 
-// .footer-info всегда выше .any-line-logo
 .footer-info {
     display: flex;
     color: $lightBlack;
@@ -213,6 +218,10 @@ img {
     gap: 39px;
     align-items: center;
     flex: 1 1 150px;
+
+    @include mq('desktop', min) {
+        flex: initial;  
+    }
 }
 
 .first-line-right{
@@ -220,6 +229,10 @@ img {
     gap: 61px;
     flex: 4 0 150px;
     align-items: center;
+
+    @include mq('desktop', min) {
+        flex: initial;  
+    }
 }
 
 .navigation ul{
@@ -231,7 +244,6 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     z-index: 2;
     margin: initial;
     background: #1D1D1B;
@@ -258,7 +270,6 @@ img {
                 transform: matrix(-1, 0, 0, 1, 0, 0);
             }
         }
-   
 
         & div:last-child {
             height: 100%;
@@ -288,9 +299,11 @@ img {
     &__bl7-gradient {
         padding-bottom: 67px;
     }
+
     &__lh {
         text-transform: uppercase;
     }
+
     &__block5-h1-text {
         padding-bottom: 25px;
     }
@@ -311,10 +324,6 @@ img {
 
     &__bl4-gradient {
         line-height: 60px;
-    }
-
-    &__left-arrow {
-        margin-right: 24px;
     }
 
     &__bl6-width {
@@ -439,8 +448,6 @@ img {
         transform-origin: 0px 0px;
         display: block;
         bottom: 0;
-        // width: calc(927.64 / math.sqrt(calc(math.pow(math.div(927.64, 874.92), 2) + 1)))*math.div(927.64, 874.92)+0px;
-        // height: calc(874.92 / math.sqrt(calc((math.pow(math.div(927.64, 874.92), 2)) + 1)))*math.div(927.64, 874.92)+0px;
         @include useBlur('../assets/icons/section1/blur1.svg', 250px, 300px, 45deg);
     }
 }
@@ -475,13 +482,11 @@ img {
     width: 30vw;
     min-width: 500px;
     font-size: 64px;
-
-   
 }
 
 .block-left-side-price{
     font-size: 3.6rem;
-    color: #FFCF7A;
+    color: $gold;
 }
 
 .block-left-side-price.block__price,
@@ -738,15 +743,10 @@ img {
 .gl5-grid2-text {
     text-align: justify;
 }
+
 .block5 {
     container-type: inline-size;
 }
-
-// @container(max-width: 1200px) {
-//     .block5-grid div:not(.block5-subgrid), img {
-//         width: 35vw;
-//     }
-// }
 
 .block5-grid-2 {
     display: flex;
@@ -815,7 +815,6 @@ img {
 
 .block5-grid-slider {
     position: relative;
-    background: #CEB787;
 
     &::before {
         content: "";
@@ -884,14 +883,6 @@ img {
     }
 }
 
-@container(min-width: 1280px) {
-    .block6-grid-2 {
-    
-        // position: absolute;
-        // right: 0;
-    }
-}
-
 .block6-grid-bottom {
     grid-column: 1/3;
     display: flex;
@@ -936,11 +927,12 @@ img {
 }
 
 .block8-name {
-    width: 609px;
+    max-width: 609px;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1.9px;
     margin: 0 auto;
+
     &:after {
         content: "";
         display: inline-block;
@@ -1093,9 +1085,6 @@ img {
 // footer
 .footer {
     background-color: #121212;
-    // position: absolute;
-    // right: 0;
-    // left: 0;
     padding: 72px 123px 0px;
 
     span {
@@ -1123,7 +1112,6 @@ img {
 }
 
 .footer-name {
-    // попроблвать clamp() и min()
     font-size: 4rem;
     width: 428px;
     text-transform: uppercase;
@@ -1141,8 +1129,6 @@ img {
 }
 
 .footer-adress {
-   
-
     & > div {
         white-space: pre-line;
         display: block;
@@ -1249,6 +1235,7 @@ img {
     bottom: 50px;
     left: 10vw;
     color: $gold;
+    gap: 20px;
 }
 
 .left-arrow {
@@ -1285,15 +1272,22 @@ img {
 
 @include breakpoint('tablet') {
     @include applyStyles($sections-margins2, margin-bottom, media);
+    .block5-preview {
+        transform: scale(0.8);
+    }
 
     .block3-right .svg {
         height: 580px;
     }
 
+    .svg, .svgView {
+        min-width: 400px;
+    }
+
     .block3-right {
        position: relative;
-       left: 0;
-       top: 0;
+       left: initial;
+       top: -190px;
     }
 
     .block3, .footer-name {
@@ -1340,13 +1334,6 @@ img {
     }
 }
 
-.burger {
-    display: none;
-}
-a {
-    text-decoration: none;
-    color: white;
-}
 @include breakpoint('phone') {
     .mobile {
         position: fixed;
@@ -1471,10 +1458,16 @@ a {
 
 
 @include mq('tablet') {
-    .header {
-        .first-line-right {
-            
-        }
+    .navigation ul {
+        gap: 13px;
+    }
+
+    .header__blur-gradient {
+        display: none;
+    }
+
+    .block5-filter1 {
+        left: -84vw;
     }
 
     .footer {
@@ -1496,10 +1489,8 @@ a {
     }
 
     .block6-grid {
-        grid-template-columns: auto;
+        grid-template-columns: minmax(200px, 900px);
     }
-
-    
 
     .block8-second-slider {
         margin: 0 auto;
@@ -1531,4 +1522,18 @@ a {
         max-width: initial;
         width: 88vw;
     }
+}
+
+.vidible {
+    display: block;
+}
+
+.header-visible {
+    height: 0;
+}
+
+.navigation-flex {
+    flex-direction: row !important;
+    font-size: 1.3rem !important;
+    gap: 20px !important;
 }

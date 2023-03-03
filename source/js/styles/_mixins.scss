@@ -1,6 +1,9 @@
+/* Для медиазапросов */
 @mixin mq($width, $type: max) {
+
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);
+
         @media only screen and (#{$type}-width: $width) {
             @content;
         }
@@ -12,6 +15,7 @@
     aspect-ratio: 1/1;
 }
 
+/* Примняет стили к группе элементов */
 @mixin applyGroup($map, $name, $prop: background-image) {
     @for $i from 1 through length($map) {
         $selector: null;
@@ -38,10 +42,12 @@
     } 
 }
 
+/* Примняет стили к группе элементов */
 @mixin applyGroup2($map, $name, $prop: background-image) {
     @for $i from 1 through length($map) {
         $selector: #{#{$name}#{$i}};
         $src: nth($map, $i);
+
         .#{$selector} {
             #{$prop}: url($src);
             @content;
@@ -49,8 +55,10 @@
     }
 }
 
+/* Хелпер для более простого использования медиазапросов */
 @mixin breakpoint($min) {
     $class: $min;
+
     @if $class == phone {
         @media (max-width: 485px) {
             @content;
@@ -66,16 +74,18 @@
     }
 }
 
+/* Вычисляет новые марджины для мобильных версий */
 @function getNewMargins($map) {
     $list: ();
     
     @each $key, $value in $map {
         $list: map.set($list, string.quote($key), math.div($value, 2));
     }
-    // @warn map-get($list, "block");
+
     @return $list;
 }
 
+/* Применяет марджины ко всем блокам */
 @mixin applyStyles($blocks-margins, $style: margin-bottom, $media: null) {
     
     @each $name, $value in $blocks-margins {
@@ -91,8 +101,7 @@
     }
 }
 
-
-
+/* Для наложения фильтров в секциях */
 @mixin useBlur($background, $filter, $radius, $rotate) {
     @at-root #{&} {
         position: absolute;
@@ -100,17 +109,13 @@
         filter: blur($filter);
         border-radius: $radius;
         transform: rotate($rotate);
-        // @each $key, $value in meta.keywords($args) {
-            
-        //         position: absolute;
-        //         #{$key}: $value;
-        
-        // }
     }
 }
 
+/* Применяет размер шрифта */
 @mixin useFonts($sizes) {
     $block: 'block1';
+
     @each $class in map-get($sizes, 'size') {
         $index: index(map-get($sizes, 'size'), $class);
 
