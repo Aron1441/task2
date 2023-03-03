@@ -1,0 +1,61 @@
+<svg class="svg" viewBox="-1 -1 1300 600">
+    <defs>
+      <filter id="f1" x="0" y="0">
+       <feGaussianBlur in="SourceGraphic" stdDeviation="25" />
+     </filter>
+       <filter id="f2" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse">
+       <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="specOut"/>
+     </filter> 
+   </defs>
+   
+   <symbol id="msk1">
+     <ellipse cx="650px"  cy="300px" filter="url(#f2)"  rx="550px" ry="270px" fill="white" />
+   </symbol>
+   <symbol id="msk2">
+     <ellipse cx="45px"  cy="45px" rx="10" ry="10" fill="white" />
+   </symbol>
+   <mask id="mask-circles2" maskUnits="userSpaceOnUse">
+     <use xlink:href="#msk2" />
+   </mask>
+   <mask id="mask-circles" maskUnits="userSpaceOnUse">
+     <use xlink:href="#msk1" />
+   </mask>
+   <!-- <rect width="90px" id="blurred"  mask="url(#mask-circles)" height="90px" stroke="green" stroke-width="3" fill="black"  /> -->
+   <image xlink:href="http://localhost:4200/assets/icons/section4/kamin.svg"  mask="url(#mask-circles)" width="100%" height="100%" />
+ </svg>
+ <div>
+ <svg class="svg2" viewBox="-1 -1 486 486" preserveAspectRatio="xMidYMax meet">
+    <defs>
+        <filter id="f3" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse">
+         <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="specOut"/>
+       </filter>
+       <filter id="filter0_f_71_292" x="0.122803" y="0.859619" width="680.199" height="605.124" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="35" result="effect1_foregroundBlur_71_292"/>
+        </filter> 
+        <filter id="filter0_f_71_291" x="0.15625" y="0.455322" width="668.714" height="713.529" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="25" result="effect1_foregroundBlur_71_291"/>
+        </filter>
+    </defs>
+
+    <symbol id="msk4">
+        <ellipse cx="230px"  cy="320px"  rx="47px" ry="47px" fill="white" opacity=".7"/>
+        <ellipse cx="170px"  cy="260px"  rx="24px" ry="24px" fill="white" opacity=".7"/>
+    </symbol>
+    <mask id="mask-circles4" maskUnits="userSpaceOnUse">
+        <use xlink:href="#msk4" />
+    </mask>
+    <image  class="svg2-image" preserveAspectRatio="xMinYMid meet" xlink:href="http://localhost:4200/assets/icons/section3/image.svg" x="0" y="0" width="486px" height="486px" />
+    <g x="0" class="svg2-blur1" filter="url(#filter0_f_71_292)">
+        <rect transform="translate(120,50) rotate(10)" x="20px" y="50px" width="269px" height="215px" rx="134.826"  fill="#C97335" fill-opacity="0.45"/>
+    </g>
+    <g filter="url(#filter0_f_71_291)">
+        <rect x="-20px" y="190px" width="205.982" height="320.04" rx="167.991" transform="matrix(0.921508 0.38836 0.38836 -0.921508 98.1448 485.514)" fill="#AF9870" fill-opacity="0.34"/>
+        </g>
+    <image mask="url(#mask-circles4)" class="svg2-image" preserveAspectRatio="xMinYMid meet" xlink:href="http://localhost:4200/assets/icons/section3/image.svg" x="0" y="0" width="486px" height="486px" />    
+    <ellipse cx="230px"  cy="320px"  rx="47px" ry="47px" fill="none" stroke="#FFCF7A" stroke-width="2px"/>
+    <ellipse cx="170px"  cy="260px"  rx="24px" ry="24px" fill="none" stroke="#FFCF7A" stroke-width="2px"/>
+ </svg>

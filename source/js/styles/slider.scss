@@ -1,0 +1,42 @@
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none; 
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include square(16px);
+    border-radius: 2px;
+    background: #FFCF7A;
+    cursor: pointer;
+    margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    @include square(16px);
+    border-radius: 2px;
+    background: #FFCF7A;
+    cursor: pointer;
+}
+
+[type='range'] {
+    &::-webkit-slider-runnable-track {
+        width: 296px;
+        height: 0;
+        cursor: pointer;
+        border: 2px solid #FFCF7A;
+    }
+  
+    &::-moz-range-track {
+        width: 296px;
+        height: 0;
+        cursor: pointer;
+        border: 2px solid #FFCF7A;
+    }
+}

@@ -1,0 +1,25 @@
+<!-- <svg viewBox="0 0 830 180">
+        <linearGradient id="gradient">
+        <stop offset="0" stop-color="gold"></stop>
+        <stop offset="30%" stop-color="red"></stop>
+        <stop offset="60%" stop-color="darkviolet"></stop>
+        <stop offset="100%" stop-color="deepskyblue"></stop>
+        </linearGradient>
+    
+    
+    <symbol id="text">
+        <text x="50%" y="50%"
+              dy=".35em"
+              text-anchor="middle"
+              >&bull; Gradient &bull;</text>
+    </symbol>
+    
+            <use  stroke="url(#gradient)"  xlink:href="#text"
+                 fill="none" stroke-width="2"></use>
+
+    
+    
+</svg> -->
+<svg class="svg" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="0">TEXT</text>
+</svg>

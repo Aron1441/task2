@@ -1,0 +1,132 @@
+@mixin mq($width, $type: max) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin square($width) {
+    width: $width;
+    aspect-ratio: 1/1;
+}
+
+@mixin applyGroup($map, $name, $prop: background-image) {
+    @for $i from 1 through length($map) {
+        $selector: null;
+
+        @if type-of($name) == 'list' {
+            $left: nth($name, 1);
+            $right: nth($name, 2);
+            $partial: #{#{$left}#{$i}#{$right}};
+            $selector: #{selector.append(&, __#{$partial})};
+        } @else {
+            $selector: #{selector.append(&, __#{$name})}#{$i};
+        }
+        
+        $src: nth($map, $i);
+        @at-root #{$selector} {
+            @if $prop == 'background-image' {
+                #{$prop}: url($src);
+            } @else {
+                #{$prop}: $src;
+            }
+            
+            @content;
+        };
+    } 
+}
+
+@mixin applyGroup2($map, $name, $prop: background-image) {
+    @for $i from 1 through length($map) {
+        $selector: #{#{$name}#{$i}};
+        $src: nth($map, $i);
+        .#{$selector} {
+            #{$prop}: url($src);
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint($min) {
+    $class: $min;
+    @if $class == phone {
+        @media (max-width: 485px) {
+            @content;
+        }
+    } @else if $class == tablet {
+        @media (min-width: 485px) and (max-width: 992px) {
+            @content;
+        }
+    } @else if $class == desktop {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+@function getNewMargins($map) {
+    $list: ();
+    
+    @each $key, $value in $map {
+        $list: map.set($list, string.quote($key), math.div($value, 2));
+    }
+    // @warn map-get($list, "block");
+    @return $list;
+}
+
+@mixin applyStyles($blocks-margins, $style: margin-bottom, $media: null) {
+    
+    @each $name, $value in $blocks-margins {
+        @if $media == media {
+            @at-root .#{$name} {
+                #{$style}: $value;
+            }
+        } @else {
+            .#{$name} {
+                #{$style}: $value;
+            }
+        }
+    }
+}
+
+
+
+@mixin useBlur($background, $filter, $radius, $rotate) {
+    @at-root #{&} {
+        position: absolute;
+        background-image: url($background);
+        filter: blur($filter);
+        border-radius: $radius;
+        transform: rotate($rotate);
+        // @each $key, $value in meta.keywords($args) {
+            
+        //         position: absolute;
+        //         #{$key}: $value;
+        
+        // }
+    }
+}
+
+@mixin useFonts($sizes) {
+    $block: 'block1';
+    @each $class in map-get($sizes, 'size') {
+        $index: index(map-get($sizes, 'size'), $class);
+
+        $classes: map-get(map-get($sizes, 'size'), #{$block});
+        
+        $list: nth($classes, 1);
+        $list2: nth($classes, 2);
+        $class: nth($list, 2);
+        $size: nth($list2, 2);
+
+        $block: #{block#{$index+1}};
+
+        @for $i from 1 through length($size) {
+            .#{nth($class, $i)} {
+             font-size: nth($size, $i)
+            }
+         }
+    }
+}

@@ -1,0 +1,122 @@
+$breakpoints: (
+	phone: 485px,
+	tablet: 992px,
+	desktop: 1280px
+);
+
+$padding-tablet: (76px 50px);
+$padding-desktop: (76px 123px);
+$padding-phone: (76px 25px);
+
+$block2Icons: (
+    '../assets/icons/section2/fire.svg',
+    '../assets/icons/section2/oil.svg',
+    '../assets/icons/section2/krest.svg'
+);
+$block3Icons: (
+    '../assets/icons/section3/switch.svg'
+    '../assets/icons/section3/switch.svg'
+);
+
+$sections-margins: (
+	block: 50px,
+	block2: 203px,
+	block4: 44px,
+	block5: 91px,
+	block6: 106px,
+	block7: 94px,
+	block8: 100px
+);
+
+$sections-margins2: call(get-function("getNewMargins"), $sections-margins);
+
+$headers-line-heights: (
+	block-left-side-name: 80px,
+	body__lh5: 65px,
+	'body__lh, .body__block8-lb-name1, .body__block8-lb-name2, .body__block8-h6-text': 55px,
+	body__bl2-gradient: 60px,
+	body__lh4: 44px,
+	block8-reusable-left: 40px,
+	footer__lh: 36px,
+	'body__bl6-h2-text, .footer-contacts-item, .wrap': 33px,
+	'body__lh3, .block5-flex': 27px,
+);
+
+$sections-gradients: (
+	linear-gradient(226.43deg, #FFFFFF 49.37%, rgba(255, 255, 255, 0) 99.78%),
+	linear-gradient(240.22deg, #FFFFFF 31.8%, rgba(255, 255, 255, 0) 87.73%),
+	linear-gradient(247.29deg, #FFFFFF 35.25%, rgba(255, 255, 255, 0) 104.81%),
+	linear-gradient(247.29deg, #FFFFFF 35.25%, rgba(255, 255, 255, 0) 104.81%),
+	linear-gradient(249.07deg, #FFFFFF 36.17%, rgba(255, 255, 255, 0) 97.71%),
+	linear-gradient(239.18deg, #FFFFFF 25.25%, rgba(255, 255, 255, 0.07) 95.17%),
+	linear-gradient(235.41deg, #FFFFFF 28.47%, rgba(255, 255, 255, 0.18) 91.88%),
+	linear-gradient(231.91deg, #FFFFFF 37.36%, rgba(255, 255, 255, 0) 86.46%)
+);
+
+$block1-seizes: (
+	'size': (
+		'block1': (
+			'classes': ('block-left-side-name', 'block-left-side-price', 'block-left-side-icons'),
+			'size': (64px, 36px, 1.4rem)
+		),
+		'block2': (
+			'classes': ('block-name', 'block2-descr', 'block-icon'),
+			'size': (40px, 20px, clamp(min(5vw, 1rem), 1.6rem, 2rem))
+		),
+		'block3': (
+			'classes': ('block3-left-name', 'block3-left-bottom', "block3-bottom-text"),
+			'size': (40px, 18px, 14px)
+		),
+		'block4': (
+			'classes': ('block-name', 'block2-descr'),
+			'size': (40px, 20px)
+		),
+		'block5': (
+			'classes': ('block5-grid, block6-grid', 'block5-h1-text', 'block5-h2-text'),
+			'size': (14px, 24px, 18px)
+		),
+		'block6': (
+			'classes': ('block6-bottom-top', 'block6-h2-text', 'block6-bottom-bottom', 'block6-h3-text'),
+			'size': (44px, 24px, 18px, 14px)
+		),
+		'block7': (
+			'classes': ('block7-name, .block8-name'),
+			'size': (40px)
+		),
+		'block8': (
+			'classes': ('block8-cost-value', 'block8-lb-length', 'block8-start, .block8-end', 'block8-reusable-left', 'body__block8-h6-text'),
+			'size': (40px, 24px, 18px, 14px, 10px)
+		),
+	)
+);
+
+$btn-gradient: (
+	'background': (
+		'linear-gradient': (
+			(270.21deg, rgba(255, 217, 196, 0.8) 18.08%, rgba(255, 255, 255, 0.8) 68.72%),
+			(270.21deg, rgba(249, 139, 77, 0.8) 18.08%, rgba(255, 103, 82, 0.8) 68.72%)
+		)
+	),
+	'name': ('button-gradient', 'fl-right-icon'),
+);
+
+$block6Filters: (
+	'../assets/icons/section6/blur.svg'
+	'../assets/icons/section6/blur2.svg'
+	'../assets/icons/section6/blur3.svg'
+);
+
+$blurs: (
+	'section6': (
+		background: rgba(18, 18, 18, 0.7),
+		filter: blur(75px),
+		border-radius: 300px,
+		transform: matrix(1, 0, 0, -1, 0, 0)
+	),
+);
+$font-logo: 'Scania Sans CY Headline';
+
+@font-face {
+	font-family: 'Lab Grotesque';
+	src: url('../assets/fonts/LabGrotesque-Regular.woff2') format('truetype');
+}
